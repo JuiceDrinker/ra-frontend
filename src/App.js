@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useReducer } from "react";
+import GlobalContext from "./state/GlobalContext";
+import initialState from "./state/initialState";
+import globalReducer from "./globalReducer";
 
+const [state, dispatch] = useReducer(globalReducer, initialState);
 function App() {
-  return <div className="App"></div>;
+  return (
+    <GlobalContext.Provider value={{ state, dispatch }}>
+      <div className="App"></div>
+    </GlobalContext.Provider>
+  );
 }
 
 export default App;
