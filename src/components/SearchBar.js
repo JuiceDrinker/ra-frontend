@@ -3,9 +3,13 @@ import globalContext from "../state/GlobalContext";
 const SearchBar = () => {
   const { dispatch } = useContext(globalContext);
 
+  const getYtSuffix = (url) => {
+    return url.split("=")[1];
+  };
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch({ type: "search", payload: search });
+    const suffix = getYtSuffix(search);
+    dispatch({ type: "search", payload: suffix });
   };
   const [search, setSearch] = useState("");
   return (

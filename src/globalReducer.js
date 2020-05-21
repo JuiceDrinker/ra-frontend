@@ -1,10 +1,12 @@
 const globalReducer = (state, action) => {
   switch (action.type) {
     case "search":
-      break;
-
+      return {
+        ...state,
+        currentVideoUrl: action.payload,
+      };
     default:
-      break;
+      return state;
   }
 };
 
