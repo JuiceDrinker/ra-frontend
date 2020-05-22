@@ -3,6 +3,7 @@ import GlobalContext from "./state/GlobalContext";
 import initialState from "./state/initialState";
 import globalReducer from "./globalReducer";
 import SearchBar from "./components/SearchBar";
+import History from "./components/History";
 import VideoView from "./components/VideoView";
 import { isDuplicateHistory } from "./utils/helperFunctions";
 
@@ -14,6 +15,7 @@ const App = () => {
       <div className="App">
         <SearchBar />
         <VideoView />
+        <History />
       </div>
     </GlobalContext.Provider>
   );

@@ -21,7 +21,7 @@ const SearchBar = () => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button> Watch This VvideoIdeo </button>
+        <button> Watch This Video </button>
       </form>
     </div>
   );

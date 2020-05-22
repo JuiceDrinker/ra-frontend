@@ -12,8 +12,14 @@ const VideoView = () => {
           videoId={currentVideoId}
           onPlay={() => {
             // If not duplicate, add to history
-            if (!isDuplicateHistory(currentVideoId, state))
+            console.log(
+              "!isDuplicateHistory(currentVideoId, state)",
+              !isDuplicateHistory(currentVideoId, state)
+            );
+            if (!isDuplicateHistory(currentVideoId, state)) {
+              console.log("dispatching");
               dispatch({ type: "addToHistory" });
+            }
           }}
         />
       ) : null}

@@ -8,7 +8,7 @@ const globalReducer = (state, action) => {
     case "addToHistory":
       return {
         ...state,
-        bookmarks: [...state.bookmarks, state.currentVideoId],
+        history: [...state.history, state.currentVideoId],
       };
     default:
       return state;

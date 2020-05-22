@@ -1,5 +1,5 @@
 const isDuplicateHistory = (videoId, state) => {
-  return state.bookmarks.includes(videoId); // Check to see if videoID already is included in history
+  return state.history.includes(videoId); // Check to see if videoID already is included in history
 };
 
 const getVideoId = (url) => {
