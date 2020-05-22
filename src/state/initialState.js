@@ -1,5 +1,5 @@
 const initialState = {
-  currentVideoUrl: "",
+  currentVideoId: "",
   bookmarks: [],
   history: [],
 };

@@ -3,7 +3,12 @@ const globalReducer = (state, action) => {
     case "search":
       return {
         ...state,
-        currentVideoUrl: action.payload,
+        currentVideoId: action.payload,
+      };
+    case "addToHistory":
+      return {
+        ...state,
+        bookmarks: [...state.bookmarks, state.currentVideoId],
       };
     default:
       return state;

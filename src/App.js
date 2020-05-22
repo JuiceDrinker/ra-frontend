@@ -4,11 +4,13 @@ import initialState from "./state/initialState";
 import globalReducer from "./globalReducer";
 import SearchBar from "./components/SearchBar";
 import VideoView from "./components/VideoView";
+import { isDuplicateHistory } from "./utils/helperFunctions";
+
 const App = () => {
   const [state, dispatch] = useReducer(globalReducer, initialState);
 
   return (
-    <GlobalContext.Provider value={{ state, dispatch }}>
+    <GlobalContext.Provider value={{ state, dispatch, isDuplicateHistory }}>
       <div className="App">
         <SearchBar />
         <VideoView />

@@ -1,24 +1,22 @@
 import React, { useContext } from "react";
 import globalContext from "../state/GlobalContext";
+import YouTube from "react-youtube";
 
 const VideoView = () => {
-  const { state } = useContext(globalContext);
-  const { currentVideoUrl } = state;
+  const { state, dispatch, isDuplicateHistory } = useContext(globalContext);
+  const { currentVideoId } = state;
   return (
     <div>
-      <iframe
-        title="video"
-        width="560"
-        height="315"
-        src={
-          currentVideoUrl === ""
-            ? null
-            : `https://www.youtube.com/embed/${currentVideoUrl}`
-        }
-        frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
+      {currentVideoId !== "" ? (
+        <YouTube
+          videoId={currentVideoId}
+          onPlay={() => {
+            // If not duplicate, add to history
+            if (!isDuplicateHistory(currentVideoId, state))
+              dispatch({ type: "addToHistory" });
+          }}
+        />
+      ) : null}
     </div>
   );
 };
