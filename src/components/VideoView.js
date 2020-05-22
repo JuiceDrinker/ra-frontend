@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import globalContext from "../state/GlobalContext";
 import YouTube from "react-youtube";
+import { isDuplicate } from "../utils/helperFunctions";
 
 const VideoView = () => {
-  const { state, dispatch, isDuplicateHistory } = useContext(globalContext);
+  const { state, dispatch } = useContext(globalContext);
   const { currentVideoId } = state;
   return (
     <div>
@@ -12,12 +13,7 @@ const VideoView = () => {
           videoId={currentVideoId}
           onPlay={() => {
             // If not duplicate, add to history
-            console.log(
-              "!isDuplicateHistory(currentVideoId, state)",
-              !isDuplicateHistory(currentVideoId, state)
-            );
-            if (!isDuplicateHistory(currentVideoId, state)) {
-              console.log("dispatching");
+            if (!isDuplicate(currentVideoId, state.history)) {
               dispatch({ type: "addToHistory" });
             }
           }}

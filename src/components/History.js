@@ -5,7 +5,6 @@ const History = () => {
   const { history } = state;
 
   useEffect(() => {
-    console.log(localStorage);
     localStorage.removeItem("history");
     localStorage.setItem("history", JSON.stringify(history));
   }, [history]);
