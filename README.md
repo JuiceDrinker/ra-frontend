@@ -36,7 +36,7 @@ History
 
 ### Routes
 
-| METHOD | ROUTE    | Description                          | REQUEST-BODY  |
-| ------ | -------- | ------------------------------------ | ------------- |
-| GET    | /history | Retrieve history of watched videos   |               |
-| POST   | /history | Add to the history of watched videos | {ytUrlSuffix} |
+| METHOD | ROUTE    | Description                          | REQUEST-BODY             |
+| ------ | -------- | ------------------------------------ | ------------------------ |
+| GET    | /history | Retrieve history of watched videos   |                          |
+| POST   | /history | Add to the history of watched videos | {title, videoId, author} |
