@@ -2,20 +2,27 @@ import React, { useContext } from "react";
 import globalContext from "../state/GlobalContext";
 import YouTube from "react-youtube";
 import { isDuplicate } from "../utils/helperFunctions";
+import API from "../utils/api-service";
 
 const VideoView = () => {
   const { state, dispatch } = useContext(globalContext);
   const { currentVideoId } = state;
+
+  const handlePlay = async (e) => {
+    if (!isDuplicate(currentVideoId, state.history)) {
+      dispatch({ type: "addToHistory" });
+      const { title, author } = e.target.getVideoData();
+      await API.addToHistory(title, author, currentVideoId);
+    }
+  };
+
   return (
     <div>
       {currentVideoId !== "" ? (
         <YouTube
           videoId={currentVideoId}
-          onPlay={() => {
-            // If not duplicate, add to history
-            if (!isDuplicate(currentVideoId, state.history)) {
-              dispatch({ type: "addToHistory" });
-            }
+          onPlay={(e) => {
+            handlePlay(e);
           }}
         />
       ) : null}

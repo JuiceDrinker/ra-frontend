@@ -3,16 +3,17 @@ import axios from "axios";
 class API {
   constructor() {
     this.api = axios.create({
-      baseURL: "localhost:8000",
+      baseURL: "http://localhost:8000",
+      withCredentials: true,
     });
   }
 
   getHistory = () => {
-    return this.api.get("/");
+    return this.api.get("history");
   };
 
   addToHistory = (title, author, videoId) => {
-    return this.api.post("/", {
+    return this.api.post("history", {
       title,
       author,
       videoId,
