@@ -27,10 +27,11 @@ History
 
 ```
 {
-    title: [{ type: String, required: true }],
-    videoId: [{ type: String, required: true, unique: true }],
-    author: [{ type: String, required: true, unique: true }],
+  title: { type: String, required: true },
+  videoId: { type: String, required: true, unique: true },
+  author: { type: String, required: true },
 }
+
 ```
 
 ### Routes
