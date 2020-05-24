@@ -10,7 +10,7 @@ const Bookmarks = () => {
     console.log("bookmarks :>> ", bookmarks);
     bookmarks.push(currentVideo);
     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-    dispatch({ type: "addBookmarks" });
+    dispatch({ type: "addToBookmarks" });
   };
 
   return (
