@@ -15,6 +15,12 @@ const globalReducer = (state, action) => {
         ...state,
         bookmarks: [...state.bookmarks, state.currentVideoId],
       };
+
+    case "syncWithDB":
+      return {
+        ...state,
+        history: [action.payload],
+      };
     default:
       return state;
   }

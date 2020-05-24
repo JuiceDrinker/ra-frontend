@@ -9,11 +9,11 @@ class API {
   }
 
   getHistory = () => {
-    return this.api.get("history");
+    return this.api.get("/history");
   };
 
   addToHistory = (title, author, videoId) => {
-    return this.api.post("history", {
+    return this.api.post("/history", {
       title,
       author,
       videoId,
