@@ -5,21 +5,26 @@ import { isDuplicate } from "../utils/helperFunctions";
 import API from "../utils/api-service";
 
 const VideoView = () => {
-  const { state } = useContext(globalContext);
-  const { currentVideoId } = state;
+  const { state, dispatch } = useContext(globalContext);
+  const { currentVideo } = state;
 
   const handlePlay = async (e) => {
-    if (!isDuplicate(currentVideoId, state.history)) {
-      const { title, author } = e.target.getVideoData();
-      await API.addToHistory(title, author, currentVideoId);
+    const { title, author, video_id: videoId } = e.target.getVideoData();
+
+    dispatch({
+      type: "updateCurrentVideo",
+      payload: { title, author, videoId },
+    });
+    if (!isDuplicate(videoId, state.history)) {
+      await API.addToHistory(title, author, videoId);
     }
   };
 
   return (
     <div>
-      {currentVideoId !== "" ? (
+      {currentVideo.videoId !== "" ? (
         <YouTube
-          videoId={currentVideoId}
+          videoId={currentVideo.videoId}
           onPlay={(e) => {
             handlePlay(e);
           }}

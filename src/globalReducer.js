@@ -3,14 +3,21 @@ const globalReducer = (state, action) => {
     case "search":
       return {
         ...state,
-        currentVideoId: action.payload,
+        currentVideo: {
+          ...state.currentVideo,
+          videoId: action.payload,
+        },
+      };
+    case "updateCurrentVideo":
+      return {
+        ...state,
+        currentVideo: action.payload,
       };
     case "addToBookmarks":
       return {
         ...state,
-        bookmarks: [...state.bookmarks, state.currentVideoId],
+        bookmarks: [...state.bookmarks, { ...state.currentVideo }],
       };
-
     case "syncWithDB":
       return {
         ...state,

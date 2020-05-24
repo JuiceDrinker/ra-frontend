@@ -4,21 +4,25 @@ import { isDuplicate } from "../utils/helperFunctions";
 
 const Bookmarks = () => {
   const { state, dispatch } = useContext(GlobalContext);
-  const { bookmarks, currentVideoId } = state;
+  const { bookmarks, currentVideo } = state;
 
   const addToBookmark = () => {
-    if (!isDuplicate(currentVideoId, bookmarks))
-      dispatch({ type: "addToBookmarks" });
+    const currentBookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+    console.log("currentBookmarks :>> ", currentBookmarks);
+    const newBookmarks = [{ ...currentBookmarks }, { ...currentVideo }];
+    localStorage.setItem("bookmarks", JSON.stringify(newBookmarks));
   };
 
   return (
     <div>
-      {currentVideoId === "" ? null : (
+      {currentVideo.title === "" || currentVideo.author === "" ? null : (
         <button onClick={addToBookmark}>Add Video to Bookmark</button>
       )}
       <ul>
         {bookmarks.map((item) => (
-          <li key={item}> {item}</li>
+          <li key={item.videoId}>
+            {item.title} {item.author}
+          </li>
         ))}
       </ul>
     </div>

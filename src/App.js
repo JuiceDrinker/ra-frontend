@@ -14,6 +14,10 @@ const App = () => {
     syncWithDB(dispatch);
   }, []);
 
+  useEffect(() => {
+    // localStorage.setItem("bookmarks", JSON.stringify(state.bookmarks));
+    return;
+  }, [state.bookmarks]);
   return (
     <GlobalContext.Provider value={{ state, dispatch }}>
       <div className="App">
