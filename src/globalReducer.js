@@ -19,7 +19,7 @@ const globalReducer = (state, action) => {
     case "syncWithDB":
       return {
         ...state,
-        history: [action.payload],
+        history: [...action.payload],
       };
     default:
       return state;

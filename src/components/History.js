@@ -12,18 +12,15 @@ const History = () => {
   return (
     <div>
       <ul>
-        {
-          // Unclear why I have to access history[0] => Probably has to do with how I wrote "syncWithDB" dispatch
-          history[0]
-            ? history[0].map((item) => {
-                return (
-                  <li key={item._id}>
-                    {item.author} {item.title}
-                  </li>
-                );
-              })
-            : null
-        }
+        {history
+          ? history.map((item) => {
+              return (
+                <li key={item._id}>
+                  {item.author} {item.title}
+                </li>
+              );
+            })
+          : null}
       </ul>
     </div>
   );
