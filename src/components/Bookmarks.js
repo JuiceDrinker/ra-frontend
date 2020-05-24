@@ -1,16 +1,16 @@
 import React, { useContext } from "react";
 import GlobalContext from "../state/GlobalContext";
-import { isDuplicate } from "../utils/helperFunctions";
 
 const Bookmarks = () => {
   const { state, dispatch } = useContext(GlobalContext);
   const { bookmarks, currentVideo } = state;
 
   const addToBookmark = () => {
-    const currentBookmarks = JSON.parse(localStorage.getItem("bookmarks"));
-    console.log("currentBookmarks :>> ", currentBookmarks);
-    const newBookmarks = [{ ...currentBookmarks }, { ...currentVideo }];
-    localStorage.setItem("bookmarks", JSON.stringify(newBookmarks));
+    const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
+    console.log("bookmarks :>> ", bookmarks);
+    bookmarks.push(currentVideo);
+    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+    dispatch({ type: "addBookmarks" });
   };
 
   return (
