@@ -5,11 +5,6 @@ const globalReducer = (state, action) => {
         ...state,
         currentVideoId: action.payload,
       };
-    case "addToHistory":
-      return {
-        ...state,
-        history: [...state.history, state.currentVideoId],
-      };
     case "addToBookmarks":
       return {
         ...state,

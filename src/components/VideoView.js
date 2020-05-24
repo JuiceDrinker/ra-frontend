@@ -5,12 +5,11 @@ import { isDuplicate } from "../utils/helperFunctions";
 import API from "../utils/api-service";
 
 const VideoView = () => {
-  const { state, dispatch } = useContext(globalContext);
+  const { state } = useContext(globalContext);
   const { currentVideoId } = state;
 
   const handlePlay = async (e) => {
     if (!isDuplicate(currentVideoId, state.history)) {
-      dispatch({ type: "addToHistory" });
       const { title, author } = e.target.getVideoData();
       await API.addToHistory(title, author, currentVideoId);
     }
