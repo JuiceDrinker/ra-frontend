@@ -134,17 +134,31 @@ table {
   --primary-color: black;
   --secondary-color: #e20001;
   --text-color: #fff;
+  background: var(--primary-color);
+  height: 100%;
+  width: 100%;
 }
+
 .App {
   color: white;
   background: var(--primary-color);
   height: 100vh;
-  margin: 0 30% 0 30%;
+  margin: 0 15%;
+  margin-top: 20px;
 }
 
-#root {
-  background: var(--primary-color);
+.video-view {
+  border: 3px solid var(--secondary-color);
+  width: 640px;
+  height: 390px;
+  margin: 0 auto;
+}
 
-  height: 100%;
-  width: 100%;
+.search-bar {
+  margin: 0 auto;
+  border: 1px solid red;
+}
+
+.search-bar form {
+  margin: 0 auto;
 }

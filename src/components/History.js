@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import GlobalContext from "../state/GlobalContext";
+import "../styles.css";
+
 const History = () => {
   const { state, dispatch } = useContext(GlobalContext);
   const { history } = state;
@@ -10,7 +12,7 @@ const History = () => {
   };
 
   return (
-    <div>
+    <div className = "history">
       <ul>
         {history
           ? history.map((item) => {

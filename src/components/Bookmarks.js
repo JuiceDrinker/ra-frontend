@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import GlobalContext from "../state/GlobalContext";
 import { isDuplicate } from "../utils/helperFunctions";
+import "../styles.css";
 
 const Bookmarks = () => {
   const { state, dispatch } = useContext(GlobalContext);
@@ -30,7 +31,7 @@ const Bookmarks = () => {
   }, [bookmarks]);
 
   return (
-    <div>
+    <div className="bookmarks">
       <h3>Currently you have: {bookmarkCount} bookmarks saved</h3>
       {currentVideo.title === "" || currentVideo.author === "" ? null : (
         <button onClick={addToBookmark}>Add Video to Bookmark</button>
