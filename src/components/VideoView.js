@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import globalContext from "../state/GlobalContext";
 import YouTube from "react-youtube";
 import API from "../utils/api-service";
-
 const VideoView = () => {
   const { state, dispatch } = useContext(globalContext);
   const { currentVideo } = state;
@@ -21,7 +20,7 @@ const VideoView = () => {
     height: "390",
     width: "640",
   };
-  
+
   return (
     <div className="video-view">
       {currentVideo.videoId !== "" ? (

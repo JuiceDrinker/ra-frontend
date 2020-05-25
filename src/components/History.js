@@ -22,7 +22,6 @@ const History = () => {
     >
       <List>
         {history.map((item) => {
-          console.log(item);
           return (
             // Kind of hacky way to store keys
             <ListItem
@@ -51,7 +50,9 @@ const History = () => {
       >
         <HistoryList />
       </Drawer>
-      <button onClick={() => setIsDrawerOpen(true)}>History</button>
+      <button className="history-button" onClick={() => setIsDrawerOpen(true)}>
+        History
+      </button>
     </div>
   );
 };
