@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import GlobalContext from "../state/GlobalContext";
-import "../styles.css";
 
 const History = () => {
   const { state, dispatch } = useContext(GlobalContext);
@@ -12,13 +11,13 @@ const History = () => {
   };
 
   return (
-    <div className = "history">
+    <div className="history">
       <ul>
         {history
           ? history.map((item) => {
               return (
                 <li
-                  key={item.videoId}
+                  key={item.created_at} // Kind of hacky way to store keys
                   data-videoid={item.videoId} // Might be a better way to store videoId for onClick purposes
                   onClick={handleClick}
                 >

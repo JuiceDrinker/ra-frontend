@@ -128,6 +128,11 @@ table {
   border-spacing: 0;
 }
 /* CSS RESET ABOVE*/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 
 :root {
   font-family: "Roboto", sans-serif;
@@ -148,17 +153,43 @@ table {
 }
 
 .video-view {
-  border: 3px solid var(--secondary-color);
-  width: 640px;
-  height: 390px;
+  border: 1px solid white;
+  border-radius: 3px;
+  width: 650px;
+  height: 400px;
   margin: 0 auto;
 }
 
 .search-bar {
-  margin: 0 auto;
-  border: 1px solid red;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.search-bar form {
-  margin: 0 auto;
+.search-bar input[type="text"],
+textarea {
+  width: 500px;
+  padding: 10px;
+  margin: 0 20px;
+  margin-bottom: 10px;
+  border: 2px solid #eee;
+  height: 80%;
+  box-shadow: 0 0 3pt 1pt var(--secondary-color);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.search-bar button {
+  padding: 10px;
+  border: 1px solid var(--secondary-color);
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 10px;
+}
+
+.search-bar input[type="text"]:focus {
+  box-shadow: 0 0 5pt 2pt var(--secondary-color);
+  outline-width: 0px;
 }

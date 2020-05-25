@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import GlobalContext from "../state/GlobalContext";
 import { isDuplicate } from "../utils/helperFunctions";
-import "../styles.css";
 
 const Bookmarks = () => {
   const { state, dispatch } = useContext(GlobalContext);

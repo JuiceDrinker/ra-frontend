@@ -25,6 +25,7 @@ const SearchBar = () => {
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
+          placeholder="Paste a YouTube URL here"
         />
         <button> Watch This Video </button>
       </form>
