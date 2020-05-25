@@ -35,6 +35,7 @@ const Bookmarks = () => {
       {currentVideo.title === "" || currentVideo.author === "" ? null : (
         <button onClick={addToBookmark}>Add Video to Bookmark</button>
       )}
+      {/* Map over localstorage and not internal storage => Remove bookmarks inside state*/}
       <ul>
         {bookmarks.map((item) => (
           <li key={item.videoId}>

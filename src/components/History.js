@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import GlobalContext from "../state/GlobalContext";
 const History = () => {
   const { state, dispatch } = useContext(GlobalContext);

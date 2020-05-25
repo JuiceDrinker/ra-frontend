@@ -1,4 +1,5 @@
 import React, { useReducer, useEffect } from "react";
+
 import GlobalContext from "./state/GlobalContext";
 import initialState from "./state/initialState";
 import globalReducer from "./globalReducer";
@@ -7,6 +8,7 @@ import Bookmarks from "./components/Bookmarks";
 import History from "./components/History";
 import VideoView from "./components/VideoView";
 import { syncWithDB } from "./utils/helperFunctions";
+
 const App = () => {
   const [state, dispatch] = useReducer(globalReducer, initialState);
 
@@ -14,10 +16,6 @@ const App = () => {
     syncWithDB(dispatch);
   }, []);
 
-  useEffect(() => {
-    // localStorage.setItem("bookmarks", JSON.stringify(state.bookmarks));
-    return;
-  }, [state.bookmarks]);
   return (
     <GlobalContext.Provider value={{ state, dispatch }}>
       <div className="App">

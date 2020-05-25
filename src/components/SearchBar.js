@@ -7,8 +7,13 @@ const SearchBar = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    const videoId = getVideoId(search);
-    dispatch({ type: "search", payload: videoId });
+    if (search.length > 0) {
+      // Stop search if no text
+      // TODO: Error message if search empty 
+      // TODO: Validate for YouTube URL?
+      const videoId = getVideoId(search);
+      dispatch({ type: "search", payload: videoId });
+    }
   };
 
   const [search, setSearch] = useState("");
