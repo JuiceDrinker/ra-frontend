@@ -1,32 +1,57 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import GlobalContext from "../state/GlobalContext";
-
+import Drawer from "@material-ui/core/Drawer";
+import List from "@material-ui/core/List";
+import { ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
+import HistoryIcon from "@material-ui/icons/History";
 const History = () => {
   const { state, dispatch } = useContext(GlobalContext);
   const { history } = state;
 
   const handleClick = (e) => {
-    const id = e.target.getAttribute("data-videoid");
+    const id = e.currentTarget.getAttribute("data-videoid");
     dispatch({ type: "search", payload: id });
   };
 
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const HistoryList = () => (
+    <div
+      onClick={() => setIsDrawerOpen(false)}
+      onKeyDown={() => setIsDrawerOpen(false)}
+    >
+      <List>
+        {history.map((item) => {
+          console.log(item);
+          return (
+            // Kind of hacky way to store keys
+            <ListItem
+              button
+              key={item.created_at}
+              onClick={(e) => handleClick(e)}
+              data-videoid={item.videoId}
+            >
+              <ListItemIcon>
+                <HistoryIcon />
+              </ListItemIcon>
+              <ListItemText>{`${item.title} by ${item.author}`}</ListItemText>
+            </ListItem>
+          );
+        })}
+      </List>
+    </div>
+  );
   return (
     <div className="history">
-      <ul>
-        {history
-          ? history.map((item) => {
-              return (
-                <li
-                  key={item.created_at} // Kind of hacky way to store keys
-                  data-videoid={item.videoId} // Might be a better way to store videoId for onClick purposes
-                  onClick={handleClick}
-                >
-                  {item.author} {item.title}
-                </li>
-              );
-            })
-          : null}
-      </ul>
+      <Drawer
+        style={{ width: "500px" }}
+        anchor="left"
+        open={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+      >
+        <HistoryList />
+      </Drawer>
+      <button onClick={() => setIsDrawerOpen(true)}>History</button>
     </div>
   );
 };
