@@ -8,6 +8,7 @@ import Bookmarks from "./components/Bookmarks";
 import History from "./components/History";
 import VideoView from "./components/VideoView";
 import { syncWithDB } from "./utils/helperFunctions";
+import "./styles.css";
 
 const App = () => {
   const [state, dispatch] = useReducer(globalReducer, initialState);
