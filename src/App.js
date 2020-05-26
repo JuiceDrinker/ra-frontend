@@ -23,8 +23,10 @@ const App = () => {
       <div className="App">
         <SearchBar />
         <VideoView />
-        <History />
-        <Bookmarks />
+        <div className="hist-book">
+          <History />
+          <Bookmarks />
+        </div>
       </div>
     </GlobalContext.Provider>
   );

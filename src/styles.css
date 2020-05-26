@@ -145,6 +145,8 @@ table {
 }
 
 .App {
+  display: flex;
+  flex-direction: column;
   color: white;
   background: var(--primary-color);
   height: 100vh;
@@ -197,9 +199,17 @@ button:hover {
   outline-width: 0px;
 }
 
-.history-button {
-  position: relative;
-  margin-left: 200px;
+.hist-book {
+  padding: 0 10px;
+  margin: 0 15%;
   margin-top: 15px;
-  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  justify-items: center;
+  align-items: center;
+}
+
+.hist-book button {
+  margin: 10px;
 }
