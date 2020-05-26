@@ -52,7 +52,6 @@ const Bookmarks = () => {
 
   useEffect(() => {
     const savedBookMarks = JSON.parse(localStorage.getItem("bookmarks"));
-    console.log(savedBookMarks);
     const savedBookmarkCount = savedBookMarks ? savedBookMarks.length : 0;
     setBookmarkCount(savedBookmarkCount);
   }, [bookmarks]);

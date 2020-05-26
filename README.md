@@ -49,3 +49,4 @@ History
 - CRUD functions for History / Bookmark
 - User functionality
 - Sort History/Bookmark by name/author
+- Automated Testing / TDD
