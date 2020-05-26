@@ -23,6 +23,12 @@ const globalReducer = (state, action) => {
         ...state,
         history: [...action.payload],
       };
+
+    case "setBookmarks":
+      return {
+        ...state,
+        bookmarks: [...action.payload],
+      };
     default:
       return state;
   }

@@ -7,7 +7,7 @@ import SearchBar from "./components/SearchBar";
 import Bookmarks from "./components/Bookmarks";
 import History from "./components/History";
 import VideoView from "./components/VideoView";
-import { syncWithDB } from "./utils/helperFunctions";
+import { syncWithDB, syncWithLocalStorage } from "./utils/helperFunctions";
 import "./styles.css";
 
 const App = () => {
@@ -15,6 +15,7 @@ const App = () => {
 
   useEffect(() => {
     syncWithDB(dispatch);
+    syncWithLocalStorage(dispatch);
   }, []);
 
   return (

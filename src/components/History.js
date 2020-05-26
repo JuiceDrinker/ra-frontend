@@ -24,9 +24,10 @@ const History = () => {
 
     button: {
       color: "#FFF",
-      borderBottom: "1px solid red",
+      borderBottom: "1px solid #e20001",
       "&:hover": {
-        borderBottom: "1px solid white",
+        borderBottom: "1px solid #FFF",
+        color: "#e20001",
       },
     },
   });
@@ -45,7 +46,6 @@ const History = () => {
               // Kind of hacky way to store keys
               <ListItem
                 classes={{ root: classes.button }}
-                style={{}}
                 button
                 key={item.created_at}
                 onClick={(e) => handleClick(e)}
