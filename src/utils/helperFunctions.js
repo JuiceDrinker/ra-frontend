@@ -12,7 +12,7 @@ const syncWithDB = async (dispatch) => {
 
 const syncWithLocalStorage = (dispatch) => {
   const bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
-  dispatch({ type: "setBookmarks", payload: bookmarks });
+  if (bookmarks) dispatch({ type: "setBookmarks", payload: bookmarks });
 };
 
 const validateYtUrl = (url) => {

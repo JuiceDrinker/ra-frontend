@@ -1,4 +1,4 @@
-## Relief Applications Code Challenge
+# Relief Applications Code Challenge
 
 ## Front-end
 
@@ -18,6 +18,8 @@
 - When the user clicks on the plus icon, the current video is added to the bookmarks
 - When the user clicks on the bookmarks tab, all current bookmarks can be seen
 - The user can see how many bookmarks are saved currently.
+- The history is presented in descending time order (Latest watched video is at the top)
+
 
 ## Back-end
 
@@ -40,3 +42,10 @@ History
 | ------ | -------- | ------------------------------------ | ------------------------ |
 | GET    | /history | Retrieve history of watched videos   |                          |
 | POST   | /history | Add to the history of watched videos | {title, videoId, author} |
+
+
+## Backlog
+- Responsiveness
+- CRUD functions for History / Bookmark
+- User functionality
+- Sort History/Bookmark by name/author
