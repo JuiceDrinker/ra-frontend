@@ -4,12 +4,31 @@ import { isDuplicate } from "../utils/helperFunctions";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import { ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 const Bookmarks = () => {
   const { state, dispatch } = useContext(GlobalContext);
   const { bookmarks, currentVideo } = state;
   const [bookmarkCount, setBookmarkCount] = useState(0);
+
+  const useStyles = makeStyles({
+    drawerPaper: {
+      width: "50%",
+      backgroundColor: "#000",
+    },
+
+    button: {
+      color: "#FFF",
+      borderBottom: "1px solid #e20001",
+      "&:hover": {
+        borderBottom: "1px solid #FFF",
+        color: "#e20001",
+      },
+    },
+  });
+
+  const classes = useStyles();
 
   const isBookmarkDuplicate = (videoId, bookmarkArr) => {
     const idArr = bookmarkArr.map((item) => item.videoId);
@@ -45,7 +64,11 @@ const Bookmarks = () => {
           {bookmarks.map((item) => {
             console.log("item", item);
             return (
-              <ListItem button key={item.videoId}>
+              <ListItem
+                button
+                key={item.videoId}
+                classes={{ root: classes.button }}
+              >
                 <ListItemIcon>
                   <BookmarkBorderIcon />
                 </ListItemIcon>
@@ -68,6 +91,9 @@ const Bookmarks = () => {
         anchor="right"
         open={isDrawerOpen}
         onClose={() => setIsDrawerOpen(false)}
+        classes={{
+          paper: classes.drawerPaper,
+        }}
       >
         <BookmarkList />
       </Drawer>
