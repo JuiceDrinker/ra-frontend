@@ -43,6 +43,8 @@ const Bookmarks = () => {
       localStorageBookmarks.push(currentVideo);
       dispatch({ type: "addToBookmarks" });
       localStorage.setItem("bookmarks", JSON.stringify(localStorageBookmarks));
+    } else {
+      alert("Bookmark already exists");
     }
   };
 
@@ -89,6 +91,9 @@ const Bookmarks = () => {
 
   return (
     <div className="bookmarks">
+      {currentVideo.title === "" || currentVideo.author === "" ? null : (
+        <button onClick={addToBookmark}>Add Video to Bookmark</button>
+      )}
       <button onClick={() => setIsDrawerOpen(true)}>
         Bookmarks {`(${bookmarkCount})`}
       </button>
@@ -103,9 +108,6 @@ const Bookmarks = () => {
       >
         <BookmarkList />
       </Drawer>
-      {currentVideo.title === "" || currentVideo.author === "" ? null : (
-        <button onClick={addToBookmark}>Add Video to Bookmark</button>
-      )}
     </div>
   );
 };

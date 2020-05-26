@@ -7,20 +7,12 @@ const VideoView = () => {
   const { currentVideo } = state;
 
   const handlePlay = async (e) => {
-    // const { title, author, video_id: videoId } = e.target.getVideoData();
-    // dispatch({
-    //   type: "updateCurrentVideo",
-    //   payload: { title, author, videoId },
-    // });
-    // await API.addToHistory(title, author, videoId);
-  };
-
-  const handleReady = (e) => {
     const { title, author, video_id: videoId } = e.target.getVideoData();
     dispatch({
       type: "updateCurrentVideo",
       payload: { title, author, videoId },
     });
+    await API.addToHistory(title, author, videoId);
   };
 
   const opts = {
@@ -37,7 +29,6 @@ const VideoView = () => {
           onPlay={(e) => {
             handlePlay(e);
           }}
-          onReady={(e) => handleReady(e)}
         />
       ) : null}
     </div>
