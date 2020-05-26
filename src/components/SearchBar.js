@@ -13,7 +13,6 @@ const SearchBar = () => {
       setError(true);
       return;
     }
-    setError(false);
     const videoId = getVideoId(search);
     dispatch({ type: "search", payload: videoId });
   };

@@ -12,7 +12,6 @@ const syncWithDB = async (dispatch) => {
 
 const syncWithLocalStorage = (dispatch) => {
   const bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
-  console.log("bookmarks :>> ", bookmarks);
   dispatch({ type: "setBookmarks", payload: bookmarks });
 };
 

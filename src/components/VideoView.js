@@ -17,8 +17,6 @@ const VideoView = () => {
 
   const handleReady = (e) => {
     const { title, author, video_id: videoId } = e.target.getVideoData();
-    console.log(e.target);
-
     dispatch({
       type: "updateCurrentVideo",
       payload: { title, author, videoId },

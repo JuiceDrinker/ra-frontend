@@ -67,7 +67,6 @@ const Bookmarks = () => {
       >
         <List>
           {bookmarks.map((item) => {
-            console.log("item", item);
             return (
               <ListItem
                 button
