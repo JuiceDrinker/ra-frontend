@@ -54,6 +54,11 @@ const Bookmarks = () => {
     setBookmarkCount(savedBookmarkCount);
   }, [bookmarks]);
 
+  const handleClick = (e) => {
+    const id = e.currentTarget.getAttribute("data-videoid");
+    dispatch({ type: "search", payload: id });
+  };
+
   const BookmarkList = () => {
     return (
       <div
@@ -68,6 +73,8 @@ const Bookmarks = () => {
                 button
                 key={item.videoId}
                 classes={{ root: classes.button }}
+                onClick={(e) => handleClick(e)}
+                data-videoid={item.videoId}
               >
                 <ListItemIcon>
                   <BookmarkBorderIcon />
