@@ -15,4 +15,16 @@ const syncWithLocalStorage = (dispatch) => {
   console.log("bookmarks :>> ", bookmarks);
   dispatch({ type: "setBookmarks", payload: bookmarks });
 };
-export { isDuplicate, getVideoId, syncWithDB, syncWithLocalStorage };
+
+const validateYtUrl = (url) => {
+  const regex = /^(https?\:\/\/)?((www\.)?youtube\.com)\/.+$/; //Source: SO
+  return url.match(regex);
+};
+
+export {
+  isDuplicate,
+  getVideoId,
+  syncWithDB,
+  syncWithLocalStorage,
+  validateYtUrl,
+};

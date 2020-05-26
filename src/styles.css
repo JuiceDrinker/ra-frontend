@@ -213,3 +213,9 @@ button:hover {
 .hist-book button {
   margin: 10px;
 }
+
+.error {
+  margin: 0 auto;
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+}
